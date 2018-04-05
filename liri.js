@@ -1,16 +1,16 @@
 // At the top of the liri.js file, add code to read and set any environment variables with the dotenv package:
-
+var request = require("request");
 require("dotenv").config();
 var keys = require("./keys.js");
 var Twitter = require("Twitter");
-var client = new twitter(keys.twitter);
+var client = new Twitter(keys.twitter);
 var Spotify = require("node-spotify-api");
 
 // Add the code required to import the keys.js file and store it in a variable.
 // You should then be able to access your keys information like so:
 
 var spotify = new Spotify(keys.spotify);
-var client = new twitter(keys.twitter);
+var client = new Twitter(keys.twitter);
 
 
 // var client = new twitter({
@@ -43,32 +43,29 @@ if (process.argv[2] === "my-tweets") {
 	});
 };
 
-// Make it so liri.js can take in one of the following commands:
-
-// * `my-tweets`
-// * `spotify-this-song`
-// * `movie-this`
-// * `do-what-it-says`
-console.log(keys.spotify);
-
-var Spotify = require('node-spotify-api');
+// if (process.argv[2] === "spotify-this-song")
  
-var spotify = new Spotify({
-  id: keys.js.id,
-  secret: keys.js.secret
-});
+// Artist(s)
+// The song's name
+// A preview link of the song from Spotify
+// The album that the song is from
  
 spotify.search({ type: 'track', query: process.argv[3] }, function(err, data) {
   if (err) {
     return console.log('Error occurred: ' + err);
   }
  
-console.log(data); 
+console.log(JSON.stringify(data,null,2)); 
 });
 // ---------------------------------------------------------------------------------------------------------
 // Include the request npm package (Don't forget to run "npm install request" in this folder first!)
-var request = require("request");
+
 // Grab the movieName which will always be the third node argument.
+
+
+// if (process.argv[2] === "movie-this")
+
+
 var movieName = process.argv[2];
 // Then run a request to the OMDB API with the movie specified
 var queryUrl = "http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=trilogy";
