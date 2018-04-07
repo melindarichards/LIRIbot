@@ -17,7 +17,7 @@ if (process.argv[2] === "my-tweets") {
 	client.get('statuses/user_timeline', {screen_name: "Mel Rich"}, function(error, tweets, response) {
 
 		if (!error) {
-			console.log(tweets);
+			console.log(tweets[0].text);
 		}
 
 		if(error) { 
@@ -35,7 +35,7 @@ else if (process.argv[2] === "spotify-this-song") {
 		if (err) {
 			return console.log('Error occurred: ' + err);
 		}
-	
+
 		var trackInfo = data.tracks.items[0]
 
 		// Artist(s)
@@ -43,10 +43,10 @@ else if (process.argv[2] === "spotify-this-song") {
 		console.log(trackInfo.artists[i].name);
 	}
 	// The song's name--DOESN'T WORK!
-	// console.log(trackInfo.album.track.name);
+	console.log(trackInfo.name);
 
 	// A preview link of the song from Spotify--DOESN'T WORK!
-	// console.log(trackInfo.album.track.name.preview_url);
+	console.log(trackInfo.preview_url);
 
 		// The album that the song is from
 	console.log(trackInfo.album.name);
