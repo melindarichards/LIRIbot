@@ -42,10 +42,10 @@ else if (process.argv[2] === "spotify-this-song") {
 		for (var i = 0; i < trackInfo.artists.length; i++) {			
 		console.log(trackInfo.artists[i].name);
 	}
-	// The song's name--DOESN'T WORK!
+	// The song's name
 	console.log(trackInfo.name);
 
-	// A preview link of the song from Spotify--DOESN'T WORK!
+	// A preview link of the song from Spotify
 	console.log(trackInfo.preview_url);
 
 		// The album that the song is from
